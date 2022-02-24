@@ -1,0 +1,40 @@
+# training
+batch_size: 128
+epochs:  30
+lr: 0.0005
+optimizer: 'AdamW' # Either Adam or AdamW
+cv_mapping: {"train": [1, 2, 3, 4, 5, 6, 7, 8, 9,10], "val": [11], "test": [0]} # use "canonical form"
+weight_decay: 0.0
+
+# model params
+arch: "GRU"
+input_hours: 168
+forecast_hours: 48
+max_forecast_hours: 48
+hidden_size: 1024  
+num_layers: 2
+enc_dropout: 0.3
+dec_dropout: 0.3
+
+in_seq_len: 168
+out_seq_len: 48
+in_feat_len: 71
+out_feat_len: 4
+static_feat_len : 1
+
+# data
+data_path: '/data/SAUBER_data/datasets/lanuv/lanuv_ozone'
+model_path: '/data/SAUBER_data/datasets/lanuv/lanuv_ozone/deployment_model'
+resultpath: "/data3/ml_output/tst/forecast/NRW/station/"
+stations: ['AABU' ,'BIEL','BORG','BOTT','CHOR','DMD2','EIFE','HUES','LEVS','LOER','MSGE',
+           'NIED','RAT2','RODE','ROTH','SHW2','SOES','SOLI','STYR','WALS','WESE','WULA']
+
+
+
+# headers
+forecast_headers: ['NO_AM1H', 'PM10_GM1H24H', 'NO2_AM1H', 'O3_AM1H']
+relevant_headers_encoder: ['NO_AM1H', 'PM10_GM1H24H', 'NO2_AM1H', 'O3_AM1H', 'TEMP', 'HUM', 'RAIN','SUN',
+'WSPD', 'WDIR_0.0', 'WDIR_1.0', 'WDIR_2.0', 'WDIR_3.0','WDIR_4.0', 'WDIR_5.0', 'WDIR_6.0', 'WDIR_7.0', 'WDIR_8.0', 'WDIR_9.0','WDIR_10.0', 'WDIR_11.0', 'WDIR_12.0', 'WDIR_13.0', 'WDIR_14.0','WDIR_15.0', 'year', 'month_1', 'month_2', 'month_3','month_4', 'month_5', 'month_6', 'month_7', 'month_8', 'month_9','month_10', 'month_11', 'month_12', 'hour_0', 'hour_1', 'hour_2','hour_3', 'hour_4', 'hour_5', 'hour_6', 'hour_7', 'hour_8', 'hour_9','hour_10', 'hour_11', 'hour_12', 'hour_13', 'hour_14','hour_15','hour_16', 'hour_17', 'hour_18', 'hour_19', 'hour_20', 'hour_21','hour_22', 'hour_23', 'weekday_0', 'weekday_1', 'weekday_2','weekday_3', 'weekday_4', 'weekday_5', 'weekday_6', 'workfree_day_0.0','workfree_day_1.0', 'crossval'] 
+relevant_headers_decoder: ['TEMP', 'HUM', 'RAIN','SUN',
+'WSPD', 'WDIR_0.0', 'WDIR_1.0', 'WDIR_2.0', 'WDIR_3.0','WDIR_4.0', 'WDIR_5.0', 'WDIR_6.0', 'WDIR_7.0', 'WDIR_8.0', 'WDIR_9.0','WDIR_10.0', 'WDIR_11.0', 'WDIR_12.0', 'WDIR_13.0', 'WDIR_14.0','WDIR_15.0',  'year', 'month_1', 'month_2', 'month_3','month_4', 'month_5', 'month_6', 'month_7', 'month_8', 'month_9','month_10', 'month_11', 'month_12', 'hour_0', 'hour_1', 'hour_2','hour_3', 'hour_4', 'hour_5', 'hour_6', 'hour_7', 'hour_8', 'hour_9','hour_10', 'hour_11', 'hour_12', 'hour_13', 'hour_14','hour_15','hour_16', 'hour_17', 'hour_18', 'hour_19', 'hour_20', 'hour_21','hour_22', 'hour_23', 'weekday_0', 'weekday_1', 'weekday_2','weekday_3', 'weekday_4', 'weekday_5', 'weekday_6', 'workfree_day_0.0','workfree_day_1.0'] 
+

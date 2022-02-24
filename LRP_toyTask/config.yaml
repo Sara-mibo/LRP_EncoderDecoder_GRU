@@ -1,0 +1,14 @@
+max_epochs : 30
+lr : 0.0005
+weight_decay: 0
+batch_size: 128
+in_seq_len: 5
+out_seq_len: 3
+in_feat_len: 2
+out_feat_len: 1
+num_layers: 2
+hidden_size: 128
+enc_dropout : 0.3
+dec_dropout : 0.3
+arch : 'GRU'
+static_feat_len : 0
