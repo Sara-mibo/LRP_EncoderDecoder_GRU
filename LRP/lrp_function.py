@@ -207,7 +207,7 @@ class lrp_decoder_encoder:
         """
         h=self.hidden_size
         ####relevance matrice initializations encoder#####
-        Rh_e,R_newgate_e,self.Rx,Rx_e= init_encoder(self.num_layers,self.in_seq_len,self.hidden_size,x.shape)
+        Rh_e,self.Rx,Rx_e= init_encoder(self.num_layers,self.in_seq_len,self.hidden_size,x.shape)
         #### move to numpy #####
         a1=[self.hs_encoder, self.updategate_enc, self.newgate_enc, self.resetgate_enc, self.pre_gate_enc, self.wi_l0_enc, self.wi_l1_enc, self.wh_l1_enc, self.wh_l0_enc, self.bi_l0_enc ,self.bi_l1_enc , self.bh_l0_enc ,self.bh_l1_enc,x]
         

@@ -26,7 +26,17 @@ def collect_leaves(module):
 
         
 def load_model(cfg,device,loading_path):
-    
+    '''
+    Loading model
+    Parameters
+    ----------
+    cfg:            configurations
+    device:         device (cpu or gpu)
+    loading_path:   path of the trained model
+    Returns
+    ------
+    net
+    '''    
     in_feat_len = cfg.in_feat_len
     out_feat_len = cfg.out_feat_len 
 
@@ -43,6 +53,22 @@ def load_model(cfg,device,loading_path):
 
 
 def model_parameters(loading_path,device,cfg):
+    '''
+    Loading model's parameters
+    Parameters
+    ----------
+    loading_path:   path of the trained model
+    device:         device (cpu or gpu)
+    cfg:            configurations 
+    Returns
+    ------
+    wi_tuples:      weights of GRU layers (input-hidden weights)
+    wh_tuples:      weights of GRU layers (hidden-hidden weights)
+    bi_tuples:      biases of GRU layers (input-hidden biases)
+    bh_tuples:      biases of GRU layers (hidden-hidden biases)
+    (wl1,wl2):      weights of linear layers 
+    (bl1,bl2):      biases of linear layers
+    '''
     ## load model
     model= load_model(cfg,device,loading_path)
     

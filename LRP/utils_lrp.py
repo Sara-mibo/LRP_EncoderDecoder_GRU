@@ -83,7 +83,7 @@ def gru_lrp(updategate,newgate,resetgate,hs_previous,x,wi,wh,bi,bh,hs,out3,R_out
     - updategate,newgate,resetgate:            gru gates
     - hs_previous:                            previous step's hidden state(h(t-1))   
     - x:                                      input 
-    - wi,wh,bi,bh:                       weights and biases
+    - wi,wh,bi,bh:                            weights and biases
     - hs:                                     output hidden state(h(t))
     - out3:                                   output of gate before applying activation function
     - R_out:                                  relevance at layer output
@@ -107,6 +107,25 @@ def gru_lrp(updategate,newgate,resetgate,hs_previous,x,wi,wh,bi,bh,hs,out3,R_out
 
 
 def initialization(len_static,num_layers,in_seq_len,out_seq_len,out_feat_len,hidden_size):
+    """
+    Initialization of variables in lrp forward-pass
+    Args:
+    - len_static:                 lenght of static data (it could be zero when we do not have static data)
+    - num_layers:                 number of layers (In our model number of layers is the same for encoder and decoder)   
+    - in_seq_len:                 length of input sequence (encoder) 
+    - out_seq_len:                number of sequences (decoder)
+    - out_feat_len:               length of output features
+    - hidden_size:                hidden size
+    Returns:
+    - hs_encoder,hs_decoder:                          hidden states
+    - resetgate_enc, updategate_enc, newgate_enc:     GRU gates of encoder
+    - resetgate_dec, updategate_dec, newgate_dec:     GRU gates of decoder
+    - pre_gate_enc, pre_gate_dec:                     output of the gates before applying activation functions
+    - y:                  predictions
+    - l1:                 output of the first linear layer (decoder)
+    - r1:                 output of the ReLU 
+    - output              output of the second layer's GRU (before linear layers in decoder part)            
+    """    
     
     #####hidden states initialization#####
     hs_encoder=np.zeros((num_layers,in_seq_len,hidden_size))
@@ -134,6 +153,26 @@ def initialization(len_static,num_layers,in_seq_len,out_seq_len,out_feat_len,hid
 
 
 def init_decoder(len_static,num_layers,out_seq_len,hidden_size,xfShape,yShape):
+    """
+    Initialization of variables in decoder's lrp backward-pass
+    Args:
+    - len_static:                 lenght of static data (it could be zero when we do not have static data)
+    - num_layers:                 number of layers (In our model number of layers is the same for encoder and decoder)   
+    - out_seq_len:                number of sequences (decoder)
+    - hidden_size:                hidden size
+    - xfShape:                    shape of forecast input sequence
+    - yShape:                     shape of model's output
+    Returns:
+    - R_l2:        relevance score of the inputs of the second linear layer (decoder)
+    - R_l1_st:     relevance score of the inputs of the first linear layer and the static data (decoder)
+    - R_l1:        relevance score of the inputs of the first linear layer
+    - Rh_d:        relevance score of the hidden states (decoder)
+    - Rx_d:        relevance score of the inputs of GRUs (decoder)
+    - Rxfy:        relevance score of the forecast inputs and intermediate outputs (decoder)
+    - Rxf:         relevance score of the forecast inputs 
+    - Ry:          relevance score of the intermediate outputs of the decoder
+    - Rstatic:     relevance score of the static inputs            
+    """     
     ####relevance matrice initializations linears#####
     R_l2=np.zeros((out_seq_len,hidden_size )).astype(np.float128, copy=False)
     R_l1_st=np.zeros((out_seq_len,hidden_size+len_static)).astype(np.float128, copy=False)
@@ -150,11 +189,23 @@ def init_decoder(len_static,num_layers,out_seq_len,hidden_size,xfShape,yShape):
     
 
 def init_encoder(num_layers,in_seq_len,hidden_size,xShape):
+    """
+    Initialization of variables in encoder's lrp backward-pass
+    Args:
+    - num_layers:                 number of layers (In our model number of layers is the same for encoder and decoder)   
+    - in_seq_len:                 length of input sequence of encoder
+    - hidden_size:                hidden size
+    - xShape:                    shape of historical input sequence (encoder)
+    Returns:
+    - Rh_e:                      relevance score of the hidden states (encoder)
+    - Rx:                        relevance score of the historical inputs (encoder)
+    - Rx_e:                      relevance score of the inputs of GRUs (encoder)
+    """     
     Rh_e=np.zeros((num_layers,in_seq_len,hidden_size )).astype(np.float128, copy=False)
     R_newgate_e=np.zeros((num_layers,in_seq_len,hidden_size )).astype(np.float128, copy=False)
     Rx=np.zeros((in_seq_len,xShape[-1])).astype(np.float128, copy=False)
     Rx_e= np.zeros((in_seq_len,hidden_size )).astype(np.float128, copy=False)
-    return Rh_e,R_newgate_e,Rx,Rx_e
+    return Rh_e,Rx,Rx_e
 
     
 def moveToNumpy(array):

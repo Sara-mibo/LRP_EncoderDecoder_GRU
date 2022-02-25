@@ -19,6 +19,13 @@ def load_minmax():
 
 
 def load_configurations():
+    """
+    load model and data configurations 
+    Returns
+    - cfg:                 model configurations 
+    - mean, std:           mean and standard deviation of dynamic data
+    - station_mean, station_std:        mean and standard deviation of static data           
+    """ 
     
     # load config
     cfg_path = "model/config_ozone.yaml"

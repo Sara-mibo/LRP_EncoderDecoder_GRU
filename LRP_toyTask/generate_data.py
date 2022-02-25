@@ -5,6 +5,16 @@ from types import SimpleNamespace
 
 
 def generate_data(std_flag):
+    """
+    Generate data for the toy task
+    Parameters
+    - std_flag:        when the flag is one, data will be standardized
+    Returns
+    - (traindata,trainfdata,trainldata):     train dataset (historical, forecast, and labels) 
+    - (valdata,valfdata,valldata):           validation dataset (historical, forecast, and labels)
+    - (testdata,testfdata,testldata):        test dataset (historical, forecast, and labels)
+    - cfg:                                   configurations            
+    """    
     ## random values [-1,3]
     np.random.seed(seed=1111)
     data = np.random.randint(1, high=5, size=(100000,5,2))-2
