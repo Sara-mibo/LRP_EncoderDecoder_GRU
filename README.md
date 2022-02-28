@@ -14,9 +14,8 @@
 <!-- ABOUT THE PROJECT -->
 ## Project Description
 
-The reository provides the implementation of Layerwise Relevance Propagation (LRP) for GRU cells proposed by pytorch framework. We use LRP in order to explain the decisions of an encoder-decoder pollution forecasting model.   
+The reository provides the implementation of the Layerwise Relevance Propagation (LRP) method for GRU cells proposed by pytorch framework. We use LRP in order to explain the decisions of an encoder-decoder pollution forecasting model.   
 
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
