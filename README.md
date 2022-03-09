@@ -5,7 +5,6 @@
     <li> <a href="#about-the-project">Project Description</a></li>
     <li><a href="#getting-started">Dependencies</a></li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -59,14 +58,6 @@ The folder train_seq2seq_1hotEncoding/ contains the experiments which were done 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the '' License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
