@@ -3,19 +3,21 @@
 │   ├── train_val_test_meanstd_1hotEnc.p
 │   ├── train_val_test_minmax_1hotEnc.p
 │   └── x_xf_tr_st_NO2.p
-├── LRP_example.ipynb
 ├── model
 │   ├── config_ozone.yaml
 │   └── no_binarystd_GRUh1024l2dr0.3O3v0
 │       └── last_checkpoint
+├── LRP_example.ipynb
 ├── model.py
 └── utils_data.py
 ```
 
-Folder data/ contains pickel files representing mean, standard deviation, min, and max of the data. In x_xf_tr_st_NO2.p, there are a couple of samples of data points with high forecast value for NO2 (historical, forecast, and static inputs plus the real measured values for the points).
+The folder `data/` contains pickel files representing mean, standard deviation, min, and max of the data. The file `x_xf_tr_st_NO2.p` contains a couple of samples of data points with high forecast value for NO2 (historical, forecast, and static inputs plus the real measured pollutant values for these points).
 
-Folder model/ contains the trained pollution forecasting model.
+The folder `model/` contains the trained pollution forecasting model. It additionally contains a configuration file `config_ozone.yaml`.
 
-utils_data.py provides the functions that are needed for reading data for pollution forecasting task.
+The file `model.py` contains the `class EncoderDecoder` that defines the model.
 
-LRP_example.ipynb is an example of using LRP function for the pollution forecasting model.
+The file `utils_data.py` provides the functions that are needed for reading data for the pollution forecasting task, and loading the configurations.
+
+The notebook `LRP_example.ipynb` is an example of using the LRP function on the pollution forecasting model.

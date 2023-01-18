@@ -13,31 +13,28 @@
 <!-- ABOUT THE PROJECT -->
 ## Project Description
 
-The reository provides the implementation of the Layerwise Relevance Propagation (LRP) method for GRU cells proposed by pytorch framework. We use LRP in order to explain the decisions of an encoder-decoder pollution forecasting model.   
-
-
+This repository provides the implementation of the Layer-wise Relevance Propagation (LRP) explanation method for GRU cells (as proposed by the Pytorch framework), as well as for a sequence-to-sequence neural network architecture. We use LRP in order to explain the decisions of an encoder-decoder GRU-based pollution forecasting model.
 
 
 
 <!-- GETTING STARTED -->
+## Dependencies
 
-### Dependencies
-
-The list of things you need to run the codes.
-* environment lrpenv
+The steps you need to run to install the required dependencies are the following:
+* create environment lrpenv
   ```sh
   conda create -n lrpenv python=3.8
   ```
-* activate lrpenv
+* activate environment lrpenv
   ```sh
   conda activate lrpenv
   ```
-* pip
+* install pip
   ```sh
   conda install pip
 
   ```
-* requirements
+* install requirements
   ```sh
   pip install -r requirements.txt
   ```
@@ -46,25 +43,20 @@ The list of things you need to run the codes.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-The folder LRP/ contains the main scripts of LRP implementation for a seq-2-seq model with GRU layers. 
+The folder `LRP/` contains the main part of the LRP implementation for a seq-2-seq model with GRU layers.
 
-The folder LRP_toyTask/ contains the scripts used for validation of the LRP implementation through a toy task.
+The folder `LRP_toyTask/` contains the scripts used for validation of the LRP implementation through a toy task.
 
-The folder LRP_pollutionForecatModel/ contains the scripts used for applying LRP to a polluttion forecasting task.
-
-The folder train_seq2seq_1hotEncoding/ contains the experiments which were done for the pollution forecasting task.
-
+The folder `LRP_pollutionForecastModel/` contains the scripts used for applying LRP to a pollution forecasting task.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 
 
 <!-- CONTACT -->
 ## Contact
 
-Sara Mirzavand Borujeni - sara.mirzavand.borujeni@hhi.fraunhofer.de - sarah.mb@outlook.com
+Sara Mirzavand Borujeni: sara.mirzavand.borujeni@hhi.fraunhofer.de - sarah.mb@outlook.com
 
 Project Link: [https://github.com/Sara-mibo/LRP_EncoderDecoder_GRU](https://github.com/Sara-mibo/LRP_EncoderDecoder_GRU)
 
@@ -75,8 +67,9 @@ Project Link: [https://github.com/Sara-mibo/LRP_EncoderDecoder_GRU](https://gith
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* [Design and Results of an AI-Based Forecasting of Air Pollutants for Smart Cities](https://www.isprs-ann-photogramm-remote-sens-spatial-inf-sci.net/VIII-4-W1-2021/89/2021/)
-* [implementation of **Layer-wise Relevance Propagation (LRP) for LSTMs**, repo by L. Arras](https://raw.githubusercontent.com/ArrasL/LRP_for_LSTM)
-* [Explaining Recurrent Neural Network Predictions in Sentiment Analysis, Arras, L., Montavon, G., Müller, K., & Samek, W.](https://aclanthology.org/W17-5221.pdf)
+* [Petry et al. 2021, Design and Results of an AI-Based Forecasting of Air Pollutants for Smart Cities, ISPRS Ann. Photogramm. Remote Sens. Spatial Inf. Sci., VIII-4/W1-2021, pages 89–96](https://doi.org/10.5194/isprs-annals-VIII-4-W1-2021-89-2021)
+* [Reference Implementation of **Layer-wise Relevance Propagation (LRP) for LSTMs**, repository by L. Arras](https://github.com/ArrasL/LRP_for_LSTM)
+* [Arras et al. 2017, Explaining Recurrent Neural Network Predictions in Sentiment Analysis, Proc. of the 8th Work. on Comput. Appr. to Subjectivity, Sentiment and Social Media Analysis, ACL, pages 159-168](https://aclanthology.org/W17-5221)
+* [Bach et al. 2015, On Pixel-Wise Explanations for Non-Linear Classifier Decisions by Layer-Wise Relevance Propagation, PLoS ONE 10(7): e0130140](https://doi.org/10.1371/journal.pone.0130140)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
