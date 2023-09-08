@@ -67,6 +67,7 @@ Project Link: [https://github.com/Sara-mibo/LRP_EncoderDecoder_GRU](https://gith
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
+* [Mirzavand Borujeni, S., Arras, L., Srinivasan, V. et al. Explainable sequence-to-sequence GRU neural network for pollution forecasting. Sci Rep 13, 9940 (2023).](https://doi.org/10.1038/s41598-023-35963-2)
 * [Petry et al. 2021, Design and Results of an AI-Based Forecasting of Air Pollutants for Smart Cities, ISPRS Ann. Photogramm. Remote Sens. Spatial Inf. Sci., VIII-4/W1-2021, pages 89–96](https://doi.org/10.5194/isprs-annals-VIII-4-W1-2021-89-2021)
 * [Reference Implementation of **Layer-wise Relevance Propagation (LRP) for LSTMs**, repository by L. Arras](https://github.com/ArrasL/LRP_for_LSTM)
 * [Arras et al. 2017, Explaining Recurrent Neural Network Predictions in Sentiment Analysis, Proc. of the 8th Work. on Comput. Appr. to Subjectivity, Sentiment and Social Media Analysis, ACL, pages 159-168](https://aclanthology.org/W17-5221)
